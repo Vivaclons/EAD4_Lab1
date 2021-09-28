@@ -21,4 +21,9 @@ public class ProductRatingController {
     public ResponseEntity<?> getProductRatingById(@PathVariable Long id) {
         return ResponseEntity.ok(productRatingService.getProductRatingById(id));
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getProductClickById(@PathVariable Long id) {
+        return ResponseEntity.ok(productRatingService.getProductClickById(id));
+    }
 }

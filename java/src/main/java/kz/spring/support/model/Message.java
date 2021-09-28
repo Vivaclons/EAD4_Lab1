@@ -14,4 +14,7 @@ public class Message {
 
     @Column(name = "user_message")
     private String user_message;
+
+    @Column(name = "user_id")
+    private Long user_id;
 }
