@@ -3,6 +3,7 @@ package kz.spring.support.controller;
 import kz.spring.support.model.Message;
 import kz.spring.support.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,6 +23,11 @@ public class MessageController {
     @GetMapping("")
     public List<Message> findAll(){
        return messageService.findAll();
+    }
+
+    @GetMapping()
+    public ResponseEntity<?> getMessageById(@RequestParam("forumId") Long forumId) {
+        return ResponseEntity.ok(messageService.findByUserId(forumId));
     }
 
     @PostMapping("/create")
