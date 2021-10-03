@@ -42,23 +42,23 @@ public class MessageService {
         messageRepository.save(message);
     }
 
-    public Message removeUser(Long messageId, Long userId) {
-        Message message = messageRepository.getById(messageId);
-
-        boolean has = false;
-        for (int i = 0; i < message.getUser_id().size(); i++) {
-            if (message.getUser_id().get(i).getMemberId().equals(userId)) {
-                message.getUser_id().remove(i);
-                has = true;
-                System.out.println(message.getUser_id().size());
-                break;
-            }
-        }
-
-        if (has) {
-            return messageRepository.saveAndFlush(message);
-        }
-
-        return null;
-    }
+//    public Message removeUser(Long messageId, Long userId) {
+//        Message message = messageRepository.getById(messageId);
+//
+//        boolean has = false;
+//        for (int i = 0; i < message.getUser_id().size(); i++) {
+//            if (message.getUser_id().get(i).getMemberId().equals(userId)) {
+//                message.getUser_id().remove(i);
+//                has = true;
+//                System.out.println(message.getUser_id().size());
+//                break;
+//            }
+//        }
+//
+//        if (has) {
+//            return messageRepository.saveAndFlush(message);
+//        }
+//
+//        return null;
+//    }
 }
