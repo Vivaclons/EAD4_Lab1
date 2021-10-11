@@ -9,5 +9,6 @@ import java.util.List;
 @Repository
 public interface TextRepository extends JpaRepository<Text, Long> {
     List<Text> findByUserId(Long userId);
-    List<Text> getTextsByIdIn(List<Long> ids);
+    List<Text> findTextById(Long id);
+    List<Text> getTextByTitleIsLike(String title);
 }
