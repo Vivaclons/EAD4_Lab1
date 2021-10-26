@@ -20,6 +20,8 @@ public class TextService {
     private TextRepository textRepository;
     @Autowired
     private RestTemplate restTemplate;
+    @Autowired
+    private AuthService authService;
 
     private String authHost = "http://auth-service/";
 
@@ -41,22 +43,29 @@ public class TextService {
 
     public Text createText(Text text, String authToken) {
 
-        String url = authHost + "user/auth/user";
+        boolean auth = authService.create(authToken);
 
-        HttpHeaders headers = new HttpHeaders();
-        headers.set("Authorization", authToken);
-
-        Map<String, Object> map = new HashMap<>();
-        HttpEntity<Map<String, Object>> entity = new HttpEntity<>(map, headers);
-
-        ResponseEntity<Void> response = restTemplate.postForEntity(url, entity, Void.class);
-
-        if (response.getStatusCode() == HttpStatus.OK) {
-            this.textRepository.save(text);
-            return text;
-        } else {
+        if(!auth){
             return null;
         }
+        return text;
+
+//        String url = authHost + "user/auth/user";
+//
+//        HttpHeaders headers = new HttpHeaders();
+//        headers.set("Authorization", authToken);
+//
+//        Map<String, Object> map = new HashMap<>();
+//        HttpEntity<Map<String, Object>> entity = new HttpEntity<>(map, headers);
+//
+//        ResponseEntity<Void> response = restTemplate.postForEntity(url, entity, Void.class);
+//
+//        if (response.getStatusCode() == HttpStatus.OK) {
+//            this.textRepository.save(text);
+//            return text;
+//        } else {
+//            return null;
+//        }
     }
 
     public Text updateText(Text text, String authToken) {

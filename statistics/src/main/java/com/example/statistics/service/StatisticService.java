@@ -21,6 +21,8 @@ public class StatisticService {
     private StatisticRepository statisticRepository;
     @Autowired
     private RestTemplate restTemplate;
+    @Autowired
+    private AuthService authService;
 
     String authHost = "http://auth-service/";
 
@@ -37,22 +39,29 @@ public class StatisticService {
     }
 
     public Statistic createStatistic(Statistic statistic, String authToken) {
-        String url = authHost + "user/auth/user";
 
-        HttpHeaders headers = new HttpHeaders();
-        headers.set("Authorization", authToken);
+        boolean auth = authService.create(authToken);
 
-        Map<String, Object> map = new HashMap<>();
-        HttpEntity<Map<String, Object>> entity = new HttpEntity<>(map, headers);
-
-        ResponseEntity<Void> response = restTemplate.postForEntity(url, entity, Void.class);
-
-        if (response.getStatusCode() == HttpStatus.OK) {
-            this.statisticRepository.save(statistic);
-            return statistic;
-        } else {
+        if(!auth){
             return null;
         }
+        return statistic;
+//        String url = authHost + "user/auth/user";
+//
+//        HttpHeaders headers = new HttpHeaders();
+//        headers.set("Authorization", authToken);
+//
+//        Map<String, Object> map = new HashMap<>();
+//        HttpEntity<Map<String, Object>> entity = new HttpEntity<>(map, headers);
+//
+//        ResponseEntity<Void> response = restTemplate.postForEntity(url, entity, Void.class);
+//
+//        if (response.getStatusCode() == HttpStatus.OK) {
+//            this.statisticRepository.save(statistic);
+//            return statistic;
+//        } else {
+//            return null;
+//        }
     }
 
     public Statistic updateStatistic(Statistic statistic, String authToken) {
