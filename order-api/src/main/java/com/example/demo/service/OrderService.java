@@ -17,10 +17,14 @@ import java.util.Map;
 public class OrderService {
     @Autowired
     private OrderRepository OrderRepository;
-    @Autowired
-    private RestTemplate restTemplate;
 
-    private String authHost    = "http://auth-service/";
+    @Autowired
+    ProductService productService;
+
+    @Autowired
+    AuthService authService;
+
+
     private String productHost = "http://product-api/";
 
     public Orders getOrderById(Long OrderId) {
@@ -47,45 +51,16 @@ public class OrderService {
 
     public Orders DoOrder(Long orderId, String token) {
 
-        String url = authHost + "user/auth/admin";
-
-        HttpHeaders headers = new HttpHeaders();
-        headers.set("Authorization", token);
-        headers.setContentType(MediaType.APPLICATION_JSON);
-
-
-        Map<String, Object> map = new HashMap<>();
-        HttpEntity<Map<String, Object>> entity = new HttpEntity<>(map, headers);
-
-        ResponseEntity<Void> response = restTemplate.postForEntity(url, entity, Void.class);
-
-        if (response.getStatusCode() != HttpStatus.OK) {
+        boolean authorized = authService.authAdmin(token);
+        if (!authorized) {
             return null;
         }
 
         Orders orders = getOrderById(orderId);
 
         for (OrderProduct productId : orders.getOrderProducts()) {
-
-            url = productHost + "/product/" + productId.getProductID();
-
-            Product product =  restTemplate.getForObject(url, Product.class);
-
-            if (product == null) {
-                System.out.println("Put error");
-                return null;
-            }
-
-            product.setAmount(product.getAmount() - productId.getAmount());
-
-            url = productHost + "/product/update";
-
-            HttpEntity<Product> request = new HttpEntity<>(product, headers);
-            HttpEntity<Product> PutProductResponse =  restTemplate.exchange(url, HttpMethod.PUT, request, Product.class);
-
-            product = PutProductResponse.getBody();
-            if (product == null) {
-                System.out.println("Put error");
+            boolean isUpdated = productService.updateProductCount(productId, token);
+            if (!isUpdated) {
                 return null;
             }
         }
