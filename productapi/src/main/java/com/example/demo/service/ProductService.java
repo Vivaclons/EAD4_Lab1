@@ -14,6 +14,8 @@ import java.util.Map;
 @Service
 public class ProductService  {
     @Autowired
+    private AuthService authService;
+    @Autowired
     private ProductRepository ProductRepository;
     @Autowired
     private RestTemplate restTemplate;
@@ -34,22 +36,33 @@ public class ProductService  {
 
     public Product createProduct(Product product, String authToken) {
 
-        String url = authHost + "user/auth/admin";
+        boolean auth = authService.create(authToken);
 
-        HttpHeaders headers = new HttpHeaders();
-        headers.set("Authorization", authToken);
-
-        Map<String, Object> map = new HashMap<>();
-        HttpEntity<Map<String, Object>> entity = new HttpEntity<>(map, headers);
-
-        ResponseEntity<Void> response = restTemplate.postForEntity(url, entity, Void.class);
-
-        if (response.getStatusCode() == HttpStatus.OK) {
-            ProductRepository.save(product);
-            return product;
-        } else {
+        if(!auth){
+//            this.ProductRepository.save(product);
+////            return product;
             return null;
         }
+        return product;
+
+
+
+//        String url = authHost + "user/auth/admin";
+//
+//        HttpHeaders headers = new HttpHeaders();
+//        headers.set("Authorization", authToken);
+//
+//        Map<String, Object> map = new HashMap<>();
+//        HttpEntity<Map<String, Object>> entity = new HttpEntity<>(map, headers);
+//
+//        ResponseEntity<Void> response = restTemplate.postForEntity(url, entity, Void.class);
+//
+//        if (response.getStatusCode() == HttpStatus.OK) {
+//            ProductRepository.save(product);
+//            return product;
+//        } else {
+//            return null;
+//        }
 
     }
 

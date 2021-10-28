@@ -2,10 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="373f352c-57f3-4d2b-842f-c9d43228869b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/categories/src/main/java/kz/spring/categories/service/AuthService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/productapi/src/main/java/com/example/demo/service/AuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/categories/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/categories/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories/src/main/java/com/example/categories/CategoriesApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/categories/src/main/java/com/example/categories/CategoriesApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/categories/src/main/java/kz/spring/categories/CategoriesApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/categories/src/main/java/kz/spring/categories/CategoriesApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/categories/src/main/java/kz/spring/categories/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/categories/src/main/java/kz/spring/categories/service/CategoryService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/productapi/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/productapi/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/productapi/src/main/java/com/example/productapi/ProductapiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/productapi/src/main/java/com/example/productapi/ProductapiApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/productapi/src/main/java/com/example/demo/ProductApiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/productapi/src/main/java/com/example/demo/ProductApiApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/productapi/src/main/java/com/example/demo/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/productapi/src/main/java/com/example/demo/service/ProductService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +31,27 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/categories/src/main/java/kz/spring/categories/service" />
     <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/categories/src/main/java/kz/spring/categories/service" />
+      <recent name="$PROJECT_DIR$/statistics/src/main/java/com/example/statistics/service" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -38,10 +62,22 @@
       <option name="presentableId" value="Default" />
       <updated>1633293049086</updated>
       <workItem from="1633293050622" duration="203000" />
+      <workItem from="1635103476589" duration="681000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

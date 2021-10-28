@@ -17,6 +17,8 @@ import java.util.Map;
 @Service
 public class CategoryService {
     @Autowired
+    private AuthService authService;
+    @Autowired
     private CategoryRepository categoryRepository;
     @Autowired
     private RestTemplate restTemplate;
@@ -32,22 +34,32 @@ public class CategoryService {
     }
 
     public Category createCategory(Category category, String authToken) {
-        String url = authHost + "user/auth/admin";
 
-        HttpHeaders headers = new HttpHeaders();
-        headers.set("Authorization", authToken);
+        boolean auth = authService.create(authToken);
 
-        Map<String, Object> map = new HashMap<>();
-        HttpEntity<Map<String, Object>> entity = new HttpEntity<>(map, headers);
-
-        ResponseEntity<Void> response = restTemplate.postForEntity(url, entity, Void.class);
-
-        if (response.getStatusCode() == HttpStatus.OK) {
-            categoryRepository.save(category);
-            return category;
-        } else {
+        if(!auth){
+//            this.ProductRepository.save(product);
+////            return category;
             return null;
         }
+        return category;
+
+//        String url = authHost + "user/auth/admin";
+//
+//        HttpHeaders headers = new HttpHeaders();
+//        headers.set("Authorization", authToken);
+//
+//        Map<String, Object> map = new HashMap<>();
+//        HttpEntity<Map<String, Object>> entity = new HttpEntity<>(map, headers);
+//
+//        ResponseEntity<Void> response = restTemplate.postForEntity(url, entity, Void.class);
+//
+//        if (response.getStatusCode() == HttpStatus.OK) {
+//            categoryRepository.save(category);
+//            return category;
+//        } else {
+//            return null;
+//        }
     }
 
     public void deleteCategory(Long categoryId, String authToken) {
