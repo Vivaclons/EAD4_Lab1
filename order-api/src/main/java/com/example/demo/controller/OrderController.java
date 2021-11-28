@@ -3,6 +3,7 @@ package com.example.demo.controller;
 
 import com.example.demo.model.Orders;
 import com.example.demo.service.OrderService;
+import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.*;
 public class OrderController {
     @Autowired
     private OrderService orderService;
+
+
 
     @GetMapping("/all")
     public ResponseEntity<?> getAllOrders() {

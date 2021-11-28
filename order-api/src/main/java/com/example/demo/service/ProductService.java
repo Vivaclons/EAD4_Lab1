@@ -1,7 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.model.OrderProduct;
-import com.example.demo.model.Product;
+import com.example.demo.model.*;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.springframework.beans.factory.annotation.Autowired;

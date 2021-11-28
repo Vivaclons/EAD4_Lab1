@@ -1,9 +1,8 @@
 package com.example.demo.service;
 
-import com.example.demo.model.Orders;
-import com.example.demo.model.OrderProduct;
-import com.example.demo.model.Product;
+import com.example.demo.model.*;
 import com.example.demo.repository.OrderRepository;
+import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
@@ -24,6 +23,8 @@ public class OrderService {
     @Autowired
     AuthService authService;
 
+    @Autowired
+    AmqpTemplate amqpTemplate;
 
     private String productHost = "http://product-api/";
 
@@ -36,6 +37,8 @@ public class OrderService {
     }
     
     public Orders createOrder(Orders orders) {
+
+        amqpTemplate.convertAndSend("MQ", "Order created");
         OrderRepository.save(orders);
         return orders;
     }
