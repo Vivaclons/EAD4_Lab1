@@ -3,7 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="373f352c-57f3-4d2b-842f-c9d43228869b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zuul-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Support/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Support/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Support/src/main/java/kz/spring/support/SupportApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Support/src/main/java/kz/spring/support/SupportApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Support/src/main/java/kz/spring/support/service/TextService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Support/src/main/java/kz/spring/support/service/TextService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/statistics/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/statistics/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/statistics/src/main/java/com/example/statistics/StatisticsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/statistics/src/main/java/com/example/statistics/StatisticsApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/statistics/src/main/java/com/example/statistics/service/StatisticService.java" beforeDir="false" afterPath="$PROJECT_DIR$/statistics/src/main/java/com/example/statistics/service/StatisticService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,13 +29,16 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/statistics/src/main/java/com/example/statistics/config" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/statistics/src/main/java/com/example/statistics/config" />
+      <recent name="$PROJECT_DIR$/Support/src/main/java/kz/spring/support/controller" />
+      <recent name="$PROJECT_DIR$/productapi/src/main/java/com/example/demo/controller" />
+      <recent name="$PROJECT_DIR$/Support/src/main/java/kz/spring/support/config" />
       <recent name="$PROJECT_DIR$/categories/src/main/java/kz/spring/categories/service" />
-      <recent name="$PROJECT_DIR$/statistics/src/main/java/com/example/statistics/service" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -44,6 +52,7 @@
       <workItem from="1633293050622" duration="203000" />
       <workItem from="1635103476589" duration="681000" />
       <workItem from="1638090421094" duration="541000" />
+      <workItem from="1638219302102" duration="692000" />
     </task>
     <servers />
   </component>

@@ -2,6 +2,7 @@ package com.example.statistics.service;
 
 import com.example.statistics.model.Statistic;
 import com.example.statistics.repository.StatisticRepository;
+import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -23,6 +24,8 @@ public class StatisticService {
     private RestTemplate restTemplate;
     @Autowired
     private AuthService authService;
+    @Autowired
+    AmqpTemplate amqpTemplate;
 
     String authHost = "http://auth-service/";
 
@@ -40,6 +43,7 @@ public class StatisticService {
 
     public Statistic createStatistic(Statistic statistic, String authToken) {
 
+        amqpTemplate.convertAndSend("ShQ", "description added");
         boolean auth = authService.create(authToken);
 
         if(!auth){
@@ -126,6 +130,8 @@ public class StatisticService {
     }
 
     public List<Statistic> getAll() {
+
+        amqpTemplate.convertAndSend("ShQ", "statistic added");
         return this.statisticRepository.findAll();
     }
 }

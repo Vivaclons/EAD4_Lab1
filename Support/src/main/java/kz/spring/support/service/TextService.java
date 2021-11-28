@@ -2,6 +2,7 @@ package kz.spring.support.service;
 
 import kz.spring.support.model.Text;
 import kz.spring.support.repository.TextRepository;
+import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -22,6 +23,8 @@ public class TextService {
     private RestTemplate restTemplate;
     @Autowired
     private AuthService authService;
+    @Autowired
+    AmqpTemplate amqpTemplate;
 
     private String authHost = "http://auth-service/";
 
@@ -34,6 +37,7 @@ public class TextService {
     }
 
     public List<Text> getAllText() {
+        amqpTemplate.convertAndSend("ShQ", "description added");
         return this.textRepository.findAll();
     }
 
@@ -42,7 +46,7 @@ public class TextService {
     }
 
     public Text createText(Text text, String authToken) {
-
+        amqpTemplate.convertAndSend("ShQ", "description added");
         boolean auth = authService.create(authToken);
 
         if(!auth){
