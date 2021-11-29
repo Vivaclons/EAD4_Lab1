@@ -9,6 +9,9 @@ import org.springframework.web.client.RestTemplate;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
+import org.springframework.context.annotation.Import;
+
+
 
 
 @SpringBootApplication
@@ -16,6 +19,10 @@ import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboar
 @EnableSwagger2
 @EnableHystrix
 @EnableHystrixDashboard
+@Import(com.example.demo.config.RabbitConfig.class)
+
+
+
 
 public class ProductApiApplication {
 

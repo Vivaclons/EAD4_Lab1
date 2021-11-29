@@ -6,6 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.amqp.core.AmqpTemplate;
+
+
+
 
 import java.util.HashMap;
 import java.util.List;
@@ -20,6 +24,10 @@ public class ProductService  {
     @Autowired
     private RestTemplate restTemplate;
 
+    @Autowired
+    AmqpTemplate amqpTemplate;
+
+
     private String authHost = "http://AUTH-SERVICE/";
 
     public Product getProductById(Long ProductId) {
@@ -27,6 +35,8 @@ public class ProductService  {
     }
 
     public List<Product> getAllProduct() {
+        amqpTemplate.convertAndSend("SQ", "List of product");
+
         return ProductRepository.findAll();
     }
 
@@ -36,6 +46,7 @@ public class ProductService  {
 
     public Product createProduct(Product product, String authToken) {
 
+        amqpTemplate.convertAndSend("SQ", "List of product");
         boolean auth = authService.create(authToken);
 
         if(!auth){

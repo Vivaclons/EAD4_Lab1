@@ -10,6 +10,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import org.springframework.amqp.core.AmqpTemplate;
+
+
+
+
+
+
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,9 +31,14 @@ public class CategoryService {
     @Autowired
     private RestTemplate restTemplate;
 
+    @Autowired
+    AmqpTemplate amqpTemplate;
+
+
     private String authHost = "http://auth-service/";
 
     public List<Category> getAllCategory() {
+        amqpTemplate.convertAndSend("SQ", "List of categories");
         return categoryRepository.findAll();
     }
 
@@ -34,7 +47,7 @@ public class CategoryService {
     }
 
     public Category createCategory(Category category, String authToken) {
-
+        amqpTemplate.convertAndSend("SQ", "List of categories");
         boolean auth = authService.create(authToken);
 
         if(!auth){
