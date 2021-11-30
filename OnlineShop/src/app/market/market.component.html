@@ -1,0 +1,89 @@
+<body>
+
+<ul class="nav">
+  <li><a routerLink="../home">Home</a></li>
+  <li><a class="active" routerLink="../market">Market</a></li>
+  <li><a routerLink="../basket">Basket</a></li>
+  <li style="float:right"><a (click)="logout()">Logout</a></li>
+<!--  <li style="float:right"><a routerLink="../sign-in">Sign in</a></li>-->
+</ul>
+
+<div>
+  <h1>Welcome to market</h1>
+  <h3>Our products:</h3>
+
+  <div class="mainDiv">
+    <br>
+    <br>
+    <table mat-table [dataSource]="dataTask" class="mat-elevation-z8" width="1200px">
+
+      <ng-container class="mth" matColumnDef="id">
+        <th class="mth" mat-header-cell *matHeaderCellDef> ID </th>
+        <th mat-cell *matCellDef="let element" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{element.id}} </th>
+      </ng-container>
+
+
+      <ng-container class="mth" matColumnDef="name">
+        <th class="mth" mat-header-cell *matHeaderCellDef> Product name </th>
+        <th mat-cell *matCellDef="let element"> {{element.name}} </th>
+      </ng-container>
+
+
+      <ng-container class="mth" matColumnDef="category">
+        <th class="mth" mat-header-cell *matHeaderCellDef> Category </th>
+        <th mat-cell *matCellDef="let element"> {{element.category}} </th>
+      </ng-container>
+
+      <ng-container class="mth" matColumnDef="description">
+        <th class="mth" mat-header-cell *matHeaderCellDef> Description  </th>
+        <th mat-cell *matCellDef="let element">{{element.description}}</th>
+      </ng-container>
+
+      <ng-container matColumnDef="price">
+        <th class="mth" mat-header-cell *matHeaderCellDef> Price </th>
+        <th mat-cell *matCellDef="let element">{{element.price}}</th>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <th mat-cell *matCellDef="let element">
+          <button (click)="add(element.id, element.name, element.category, element.description, element.price)">+</button>
+        </th>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row class="sth" *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table><br><br>
+
+    <div class="search">
+      <form [formGroup]="formName">
+        <h5 class="sbm">Search by name: </h5>
+        <input type="text" formControlName="name" name="name" (change)="setFilterName()"> &nbsp;&nbsp;&nbsp;
+      </form>
+    </div>
+    <div class="search">
+      <form [formGroup]="formAuth">
+        <h5 class="sbm">Search by category: </h5>
+        <input type="text" formControlName="category" name="category" (change)="setFilterAuthor()">
+      </form>
+    </div><br><br>
+  </div>
+</div>
+
+
+  <footer>
+  <br><br>
+  <ul class="foo">
+    <li class="li2"><a routerLink="../home">Home</a></li>
+    <li class="li2"><a routerLink="../market">Market</a></li>
+    <li class="li2"><a routerLink="../basket">Basket</a></li>
+    <li class="li1"><a routerLink="../login">Login</a></li>
+    <li class="li1"><a routerLink="../sign-in">Sign-in</a></li>
+    <li class="li1"><a routerLink="../admin">Admin</a></li>
+    <br><br>
+  </ul>
+  <hr class="hr">
+</footer>
+
+</body>

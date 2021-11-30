@@ -1,0 +1,19 @@
+<body><br><br>
+<form [formGroup]="formG" class="login">
+  <h1>Create new product</h1>
+
+  <label class="lab" for="name">Name:</label><br>
+  <input class="inm" id="name" name="name" formControlName="name"><br><br>
+
+  <label class="lab"  for="category">Category:</label><br>
+  <input class="inm" id="category" name="category" formControlName="category"><br><br>
+
+  <label class="lab" for="description">Description:</label><br>
+  <input class="inm" id="description" name="description" formControlName="description"><br><br>
+
+  <label class="lab" for="price">Price:</label><br>
+  <input  class="inm"id="price" name="price" formControlName="price"><br><br>
+  <button *ngIf="new" class="button" (click)="create()">Create</button>
+</form>
+<br><br>
+</body>

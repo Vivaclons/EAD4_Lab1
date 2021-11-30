@@ -1,0 +1,16 @@
+<body><br>
+<div class="text">
+  <h1>Login</h1>
+</div>
+<form [formGroup]="formG" class="login">
+  <h1>Login</h1>
+  <label class="passlabel" for="email" >Email address:</label><br>
+  <input id="email" name="email" formControlName="userName" placeholder="Email address"><br><br>
+  <p class="val" [style.color]="'red'" *ngIf="userName?.valid">Invalid email address is empty!</p>
+
+  <label class="passlabel" for="passWord">Password:</label><br>
+  <input id="passWord" name="passWord" formControlName="password" placeholder="Password" type="password"><br><br>
+  <p class="val" [style.color]="'red'" *ngIf="password?.valid">Invalid password</p>
+  <button class="button" (click)="login()">Login</button>
+</form><br>
+</body>

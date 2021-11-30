@@ -1,0 +1,126 @@
+@font-face {
+  font-family: Montserrat;
+  src: url("src/assets/mont.ttf");
+}
+
+body {
+  font-family: Montserrat;
+}
+
+.nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #002939;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #002970;
+}
+
+.active {
+  background-color: #e4cfa9;
+}
+
+footer{
+  background: #002939;
+  height: 300px;
+  width: 100%;
+}
+
+.foo {
+  margin-left: 30%;
+  background: #002939;
+  display: inline-block;
+  list-style-type: none;
+}
+
+.li {
+  padding-top: 5px;
+  float: left;
+}
+
+.li p{
+  margin-top: -10px;
+  font-size: 16px;
+  text-align: center;
+  font-family: Montserrat;
+}
+
+.li2{
+  padding-top: 5px;
+  float: left;
+}
+
+.li2 a{
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 13px;
+  font-family: Montserrat;
+}
+
+.li1{
+  padding-top: 5px;
+  float: left;
+}
+
+.li1 a{
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 13px;
+  font-family: Montserrat;
+}
+
+.hr{
+  width: 80%;
+  color: #ffffff;
+  text-align: center;
+}
+
+.mainDiv{
+  font-family: Montserrat;
+}
+
+.search{
+  display: inline-block;
+  margin-left: 2%;
+}
+
+.sbm{
+  font-family: Montserrat;
+}
+
+.mth{
+  font-family: Montserrat;
+}
+
+.sth{
+  font-family: Montserrat;
+  text-align: left;
+}
+
+.mainDiv h1{
+  font-family: Montserrat;
+  text-align: center;
+}
+
+table{
+  margin-left: 7.5%;
+}
+

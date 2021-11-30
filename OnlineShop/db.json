@@ -1,0 +1,98 @@
+{
+  "users": [
+    {
+      "Name": "user",
+      "Surname": "user",
+      "userName": "user",
+      "password": "user123",
+      "id": 3
+    },
+    {
+      "Name": "user1",
+      "Surname": "user1",
+      "userName": "user1",
+      "password": "user123",
+      "id": 4
+    },
+    {
+      "Name": "Shynggys",
+      "Surname": "Yerkyn",
+      "userName": "shyngyse",
+      "password": "password",
+      "id": 5
+    },
+    {
+      "Name": "tdrycfgvuhb",
+      "Surname": "ytuvgbhijnl",
+      "userName": "tfuvygibhjonk",
+      "password": "tuvihbjonl",
+      "id": 6
+    }
+  ],
+  "admin": [
+    {
+      "id": 1,
+      "adminName": "admin",
+      "password": "password"
+    },
+    {
+      "id": 2,
+      "adminName": "admin1",
+      "password": "password"
+    },
+    {
+      "id": 3,
+      "adminName": "admin2",
+      "password": "password"
+    }
+  ],
+  "roles": [
+    {
+      "id": 1,
+      "nameRole": "User"
+    },
+    {
+      "id": 2,
+      "nameRole": "Admin"
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "name": "Samsung S10",
+      "category": "Phone",
+      "description": "New phone",
+      "price": 200000
+    },
+    {
+      "id": 2,
+      "name": "ASUS",
+      "category": "Laptop",
+      "description": "ASUS ASUS",
+      "price": 230000
+    },
+    {
+      "id": 3,
+      "name": "ASUS",
+      "category": "Laptop",
+      "description": "ASUS ASUS",
+      "price": 230000
+    },
+    {
+      "name": "Galaxy Buds",
+      "category": "HeadPhone",
+      "description": "head phone",
+      "price": "10000",
+      "id": 4
+    }
+  ],
+  "order": [
+    {
+      "id": 2,
+      "name": "ASUS",
+      "category": "Laptop",
+      "description": "ASUS ASUS",
+      "price": 230000
+    }
+  ]
+}
