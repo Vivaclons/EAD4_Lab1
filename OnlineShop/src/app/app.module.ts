@@ -12,6 +12,9 @@ import { AdminComponent } from './admin/admin.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { CreateComponent } from './create/create.component';
+import { NewsComponent } from './news/news.component';
+import { DiscountComponent } from './discount/discount.component';
+import { CommentOrderComponent } from './comment-order/comment-order.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { CreateComponent } from './create/create.component';
     BasketComponent,
     MarketComponent,
     AdminComponent,
-    CreateComponent
+    CreateComponent,
+    NewsComponent,
+    DiscountComponent,
+    CommentOrderComponent
   ],
   imports: [
     BrowserModule,
